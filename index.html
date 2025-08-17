@@ -1,12 +1,17 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" >
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Recrutamento VIBE ELITE</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="icon" href="https://i.postimg.cc/15fvnnzb/Captura-de-tela-2025-02-25-131418.png" type="image/png" />
   <style>
-    * { box-sizing: border-box; }
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       font-family: 'Montserrat', sans-serif;
@@ -18,62 +23,218 @@
       min-height: 100vh;
       padding: 20px;
     }
-    .container {
-      background: #1e1e1e;
-      padding: 30px;
+
+    .card {
+      background: #1f1f1f;
       border-radius: 12px;
-      box-shadow: 0 4px 20px rgba(0,0,0,.4);
+      box-shadow: 0 0 25px rgba(255, 69, 0, 0.7);
       max-width: 420px;
       width: 100%;
+      padding: 30px 25px;
+      text-align: center;
+      transition: box-shadow 0.3s ease;
     }
-    h2 { margin: 0 0 20px; text-align: center; font-weight: 700; color: #00ff88; }
-    label { display: block; margin: 10px 0 6px; font-weight: 600; }
-    input, select, button {
-      width: 100%; font-size: 16px; border-radius: 8px;
+    .card:hover {
+      box-shadow: 0 0 35px rgba(255, 69, 0, 1);
     }
+
+    header img {
+      width: 90px;
+      max-width: 100%;
+      margin-bottom: 15px;
+    }
+    header h1 {
+      font-weight: 700;
+      font-size: 2.3rem;
+      margin: 0 0 12px;
+      color: #ff4500;
+      letter-spacing: 1.3px;
+    }
+    header p {
+      font-weight: 400;
+      font-size: 1.1rem;
+      margin-bottom: 28px;
+      color: #bbb;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
     input, select {
-      border: 1px solid transparent; background: #2a2a2a; color: #fff; padding: 12px 14px; 
+      background: #2a2a2a;
+      border: 2px solid #2a2a2a;
+      border-radius: 8px;
+      padding: 14px 16px;
+      font-size: 1rem;
+      color: #eee;
+      transition: border-color 0.3s ease;
+      appearance: none;
     }
-    input:focus, select:focus { outline: none; border-color: #00ff88; }
+
+    input::placeholder {
+      color: #777;
+    }
+
+    input:focus, select:focus {
+      outline: none;
+      border-color: #ff4500;
+      background: #3b1f00;
+      color: #fff;
+      box-shadow: 0 0 10px #ff4500aa;
+    }
+
+    select {
+      cursor: pointer;
+      background-image: url('data:image/svg+xml;utf8,<svg fill="%23eee" height="16" viewBox="0 0 24 24" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+      background-repeat: no-repeat;
+      background-position: right 12px center;
+      background-size: 16px;
+    }
+
     button {
-      margin-top: 10px; padding: 12px 14px; border: none; cursor: pointer;
-      background: #00ff88; color: #000; font-weight: 800; box-shadow: 0 0 18px rgba(0,255,136,.25);
+      background: #ff4500;
+      border: none;
+      border-radius: 10px;
+      padding: 14px;
+      font-weight: 700;
+      font-size: 1.15rem;
+      color: #fff;
+      cursor: pointer;
+      transition: background-color 0.4s ease, box-shadow 0.4s ease;
+      box-shadow: 0 0 20px #ff4500aa;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
     }
-    button:hover { background: #00d87a; }
-    .hint { font-size: 12px; color: #9aa; margin-top: 10px; text-align: center; }
+    button:hover {
+      background: #ff2200;
+      box-shadow: 0 0 30px #ff2200cc;
+    }
+
+    /* Botões extras para Discord e WhatsApp lado a lado */
+    .social-buttons {
+      margin-top: 25px;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+    .social-buttons a {
+      flex: 1 1 140px;
+      text-decoration: none;
+      background: #5865F2; /* Discord blue */
+      color: white;
+      font-weight: 700;
+      padding: 12px 0;
+      border-radius: 10px;
+      box-shadow: 0 0 15px #5865F2aa;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-size: 1.1rem;
+    }
+    .social-buttons a.whatsapp {
+      background: #25D366;
+      box-shadow: 0 0 15px #25D366aa;
+      color: white;
+    }
+    .social-buttons a.discord:hover {
+      background: #4752C4;
+      box-shadow: 0 0 25px #4752C4cc;
+    }
+    .social-buttons a.whatsapp:hover {
+      background: #1DA851;
+      box-shadow: 0 0 25px #1DA851cc;
+    }
+
+    footer {
+      margin-top: 24px;
+      font-size: 0.85rem;
+      color: #666;
+    }
+
+    @media (max-width: 480px) {
+      .card {
+        padding: 25px 15px;
+      }
+      header h1 {
+        font-size: 1.8rem;
+      }
+      button {
+        font-size: 1rem;
+        padding: 12px;
+      }
+      .social-buttons a {
+        flex: 1 1 100%;
+      }
+    }
+
+    /* Ícones SVG inline */
+    .icon {
+      width: 22px;
+      height: 22px;
+      fill: currentColor;
+      display: inline-block;
+    }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h2>Recrutamento VIBE ELITE</h2>
+  <main class="card" role="main" aria-label="Formulário de recrutamento VIBE ELITE">
+    <header>
+      <img src="https://i.postimg.cc/15fvnnzb/Captura-de-tela-2025-02-25-131418.png" alt="Logo VIBE ELITE" />
+      <h1>Junte-se à VIBE ELITE</h1>
+      <p>Preencha seus dados e envie pelo WhatsApp</p>
+    </header>
 
-    <form id="formRecrutamento" onsubmit="enviarWhatsapp(); return false;">
-      <label for="nick">Nick</label>
-      <input id="nick" placeholder="Seu Nick do Free Fire" required autocomplete="off" />
-
-      <label for="id">ID</label>
-      <input id="id" placeholder="Seu ID do Jogo" required autocomplete="off" />
-
-      <label for="patente">Patente</label>
-      <select id="patente" required>
-        <option value="" disabled selected>Selecione sua patente</option>
-        <option>Bronze</option>
-        <option>Prata</option>
-        <option>Ouro</option>
-        <option>Platina</option>
-        <option>Diamante</option>
-        <option>Mestre</option>
-        <option>Desafiante</option>
+    <form id="formRecrutamento" onsubmit="event.preventDefault(); enviarWhatsapp();">
+      <input type="text" id="nick" placeholder="Seu Nick do Free Fire" aria-label="Nick do Free Fire" required maxlength="20" />
+      <input type="number" id="id" placeholder="Seu ID do Jogo" aria-label="ID do Jogo" required inputmode="numeric" minlength="6" />
+      <select id="patente" aria-label="Patente" required>
+        <option value="" disabled selected>Selecione sua Patente</option>
+        <option value="Bronze">Bronze</option>
+        <option value="Prata">Prata</option>
+        <option value="Ouro">Ouro</option>
+        <option value="Platina">Platina</option>
+        <option value="Diamante">Diamante</option>
+        <option value="Mestre">Mestre</option>
+        <option value="Desafiante">Desafiante</option>
       </select>
-
-      <button type="submit" id="btnSubmit">Entrar no Grupo</button>
-      <p class="hint">Ao entrar no grupo, também abriremos o WhatsApp com sua mensagem para o ADM.</p>
+      <button type="submit" aria-label="Enviar dados via WhatsApp">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="M20.52 3.48A11.71 11.71 0 0012 0C5.373 0 .1 5.373 0 12a11.63 11.63 0 001.636 6.012L0 24l5.926-1.546A11.858 11.858 0 0012 24c6.627 0 12-5.373 12-12 0-3.184-1.255-6.176-3.48-8.52zm-8.168 17.38a9.202 9.202 0 01-4.913-1.512l-.353-.213-3.52.919.94-3.433-.23-.356a9.322 9.322 0 011.497-11.458 9.26 9.26 0 0112.44 1.164 9.22 9.22 0 012.658 6.66 9.258 9.258 0 01-9.5 7.02zm5.72-6.79c-.313-.155-1.853-.913-2.14-1.017-.287-.105-.496-.155-.704.155-.206.308-.794 1.017-.975 1.226-.18.206-.364.23-.676.078-.313-.154-1.32-.485-2.516-1.55-.93-.827-1.56-1.85-1.744-2.158-.184-.308-.02-.474.135-.63.138-.137.313-.356.47-.534.156-.178.207-.307.312-.513.104-.206.052-.386-.026-.54-.078-.154-.704-1.693-.963-2.315-.253-.6-.51-.518-.704-.527l-.6-.01c-.206 0-.54.077-.823.386-.284.308-1.08 1.055-1.08 2.57 0 1.514 1.105 2.975 1.26 3.18.156.206 2.175 3.32 5.27 4.654.737.318 1.31.508 1.758.65.738.21 1.41.18 1.94.11.592-.08 1.853-.757 2.115-1.49.263-.733.263-1.363.184-1.49-.078-.127-.287-.206-.6-.36z"/>
+        </svg>
+        Enviar via WhatsApp
+      </button>
+    
     </form>
-  </div>
+
+    <p style="margin-top:25px; font-weight:600;">Grupos do WhatsApp e do Discord</p>
+    <div class="social-buttons" aria-label="Links para Discord e WhatsApp">
+      <a href="https://discord.gg/5rqZvSfM7v" target="_blank" rel="noopener noreferrer" class="discord" aria-label="Entrar no Discord">
+        <svg class="icon" viewBox="0 0 71 55" aria-hidden="true" focusable="false" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path d="M60.104 4.552A58.87 58.87 0 0046.963.81a41.615 41.615 0 00-1.969 4.028 55.1 55.1 0 00-16.383 0 40.184 40.184 0 00-1.997-4.028 58.7 58.7 0 00-13.149 3.742C2.72 20.29.316 35.418.884 50.41a61.655 61.655 0 0018.022 4.6 44.53 44.53 0 003.483-5.675 39.922 39.922 0 01-6.067-2.832c.508-.379.999-.775 1.47-1.19a41.006 41.006 0 0037.074 0c.472.412.963.81 1.47 1.19a39.849 39.849 0 01-6.086 2.832 44.856 44.856 0 003.477 5.675 61.605 61.605 0 0018.022-4.6c.674-14.874-1.689-30.005-10.405-45.857zm-37.03 29.176c-3.376 0-6.15-3.105-6.15-6.93 0-3.825 2.732-6.931 6.15-6.931 3.44 0 6.18 3.12 6.15 6.93 0 3.823-2.71 6.931-6.15 6.931zm26.833 0c-3.376 0-6.15-3.105-6.15-6.93 0-3.825 2.732-6.931 6.15-6.931 3.44 0 6.18 3.12 6.15 6.93 0 3.823-2.71 6.931-6.15 6.931z"/>
+        </svg>
+        Discord
+      </a>
+      <a href="https://chat.whatsapp.com/DoNAvzgvlow7pmbhP10Z9e?mode=ac_t" target="_blank" rel="noopener noreferrer" class="whatsapp" aria-label="Entrar no grupo do WhatsApp">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path d="M20.52 3.48A11.71 11.71 0 0012 0C5.373 0 .1 5.373 0 12a11.63 11.63 0 001.636 6.012L0 24l5.926-1.546A11.858 11.858 0 0012 24c6.627 0 12-5.373 12-12 0-3.184-1.255-6.176-3.48-8.52zm-8.168 17.38a9.202 9.202 0 01-4.913-1.512l-.353-.213-3.52.919.94-3.433-.23-.356a9.322 9.322 0 011.497-11.458 9.26 9.26 0 0112.44 1.164 9.22 9.22 0 012.658 6.66 9.258 9.258 0 01-9.5 7.02zm5.72-6.79c-.313-.155-1.853-.913-2.14-1.017-.287-.105-.496-.155-.704.155-.206.308-.794 1.017-.975 1.226-.18.206-.364.23-.676.078-.313-.154-1.32-.485-2.516-1.55-.93-.827-1.56-1.85-1.744-2.158-.184-.308-.02-.474.135-.63.138-.137.313-.356.47-.534.156-.178.207-.307.312-.513.104-.206.052-.386-.026-.54-.078-.154-.704-1.693-.963-2.315-.253-.6-.51-.518-.704-.527l-.6-.01c-.206 0-.54.077-.823.386-.284.308-1.08 1.055-1.08 2.57 0 1.514 1.105 2.975 1.26 3.18.156.206 2.175 3.32 5.27 4.654.737.318 1.31.508 1.758.65.738.21 1.41.18 1.94.11.592-.08 1.853-.757 2.115-1.49.263-.733.263-1.363.184-1.49-.078-.127-.287-.206-.6-.36z"/>
+        </svg>
+        WhatsApp
+      </a>
+    </div>
+
+    <footer>&copy; 2025 VIBE ELITEcs - Todos os direitos reservados</footer>
+  </main>
 
   <script>
     function enviarWhatsapp() {
-      const btn = document.getElementById('btnSubmit');
       const nick = document.getElementById('nick').value.trim();
       const id = document.getElementById('id').value.trim();
       const patente = document.getElementById('patente').value;
@@ -83,27 +244,14 @@
         return;
       }
 
-      btn.disabled = true;
+      const data = new Date().toLocaleDateString('pt-BR');
+      const mensagem = `Olá! Quero entrar na guilda VIBE ELITE!\nNick: ${nick}\nID: ${id}\nPatente: ${patente}\nEnviado em: ${data}`;
+      const numero = '557186384674'; // novo número já no padrão internacional
+      const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensagem)}`;
+      window.open(url, '_blank');
+      alert('Seu pedido foi enviado para o WhatsApp! ✅');
 
-      const mensagem =
-        `Olá! Quero entrar na guilda VIBE ELITE!` +
-        `\nNick: ${nick}` +
-        `\nID: ${id}` +
-        `\nPatente: ${patente}`;
-
-      const numeroADM = '5521998283289'; // número do ADM em formato internacional
-      const linkGrupo = 'https://chat.whatsapp.com/DoNAvzgvlow7pmbhP10Z9e?mode=ac_t';
-
-      // 1) Abre o grupo em uma nova aba
-      window.open(linkGrupo, '_blank');
-
-      // 2) Abre o chat do ADM com a mensagem preenchida
-      const linkADM = `https://wa.me/${numeroADM}?text=${encodeURIComponent(mensagem)}`;
-      window.open(linkADM, '_blank');
-
-      // limpa o formulário
       document.getElementById('formRecrutamento').reset();
-      btn.disabled = false;
     }
   </script>
 </body>
